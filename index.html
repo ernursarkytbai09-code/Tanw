@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#122c46">
+<meta name="description" content="Математика мен географияға басымдық беретін жеке ҰБТ дайындық платформасы">
+<title>BILIM · ҰБТ</title>
+<style>
+:root{--navy:#122c46;--green:#2b8a68;--bg:#f3f6f9;--ink:#1c2c3a;--muted:#657587;--line:#dce4eb;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:var(--navy);color:white;padding:24px 18px 20px;border-radius:0 0 24px 24px}
+.brand{font-size:13px;letter-spacing:2px;opacity:.8;font-weight:700}.hero{font-size:26px;font-weight:800;margin:10px 0 6px}.sub{font-size:14px;opacity:.82}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}.stat{background:#254560;border-radius:14px;padding:12px}.stat small{display:block;opacity:.75;font-size:11px}.stat strong{font-size:20px;display:block;margin-top:4px}
+nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:white;padding:8px;position:sticky;top:0;z-index:5;box-shadow:0 2px 12px #152a3a0d}
+nav button{border:0;background:transparent;padding:11px 2px;border-radius:10px;font-size:12px;color:var(--muted);font-weight:700}nav button.active{background:#e2f3eb;color:#176044}
+main{padding:16px;max-width:720px;margin:auto}.page{display:none}.page.active{display:block}.section-title{font-size:21px;font-weight:800;margin:6px 0 12px}.muted{color:var(--muted);font-size:13px}
+.card{background:white;border:1px solid var(--line);border-radius:17px;padding:15px;margin:10px 0}.row{display:flex;align-items:center;gap:12px}.emoji{width:43px;height:43px;border-radius:13px;background:#e5f1ff;display:grid;place-items:center;font-size:22px;flex-shrink:0}.row .grow{flex:1}.row h3{margin:0;font-size:16px}.row p{margin:4px 0 0;font-size:13px;color:var(--muted)}.duration{font-weight:800;white-space:nowrap}
+button.primary,button.secondary{width:100%;padding:13px 14px;border-radius:12px;border:0;font-weight:800;font-size:15px;margin-top:8px}
+.primary{background:var(--green);color:white}.secondary{background:#eaf0f5;color:var(--navy)}button:disabled{opacity:.45}
+.pill{display:inline-block;font-size:11px;background:#e2f3eb;color:#176044;padding:5px 9px;border-radius:99px;font-weight:800}
+.q{padding:13px 0;border-bottom:1px solid var(--line)}.q:last-child{border-bottom:0}.q h3{font-size:15px;line-height:1.45;margin:8px 0}.option{display:flex;gap:9px;align-items:flex-start;padding:9px 10px;border:1px solid var(--line);border-radius:10px;margin:7px 0;background:white;font-size:14px}.option input{margin-top:3px;accent-color:var(--green)}
+.feedback{font-size:13px;padding:9px;border-radius:9px;margin-top:6px}.good{background:#e2f3eb;color:#176044}.bad{background:#fff0ed;color:#a13728}
+input[type=text],textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;font:inherit;background:white}textarea{min-height:90px;resize:vertical}
+a{color:#176044;font-weight:700}.bar{height:9px;background:#e7edf2;border-radius:20px;overflow:hidden;margin:9px 0}.bar span{height:100%;display:block;background:var(--green);width:0}
+footer{text-align:center;padding:22px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">BILIM · ҰБТ</div>
+ <div class="hero">Жеке дайындық кабинеті</div>
+ <div class="sub">Күніне 4 сағат · Математика + География · 5 пән</div>
+ <div class="stats">
+  <div class="stat"><small>Күндік жоспар</small><strong>4:00</strong></div>
+  <div class="stat"><small>Бейіндік пән</small><strong>2 × 90</strong></div>
+  <div class="stat"><small>Тест нәтижесі</small><strong id="topScore">—</strong></div>
+ </div>
+</header>
+<nav>
+ <button class="active" data-page="home">🏠 Кабинет</button>
+ <button data-page="lessons">📚 Сабақтар</button>
+ <button data-page="quiz">✍️ Тест</button>
+ <button data-page="progress">📈 Прогресс</button>
+</nav>
+<main>
+<section id="home" class="page active">
+ <div class="section-title">Бүгінгі оқу жоспары</div>
+ <p class="muted">Күн сайын орындалатын 4 сағаттық жоспар.</p>
+ <div class="card row"><div class="emoji">🧮</div><div class="grow"><h3>Математика</h3><p>Теория, формулалар, есептер</p></div><div class="duration">90 мин</div></div>
+ <div class="card row"><div class="emoji">🌍</div><div class="grow"><h3>География</h3><p>Карта, теория, тесттер</p></div><div class="duration">90 мин</div></div>
+ <div class="card row"><div class="emoji">🏛️</div><div class="grow"><h3>Қазақстан тарихы</h3><p>Даталар мен тарихи оқиғалар</p></div><div class="duration">30 мин</div></div>
+ <div class="card row"><div class="emoji">📖</div><div class="grow"><h3>Оқу сауаттылығы</h3><p>Мәтін және сұрақтар</p></div><div class="duration">15 мин</div></div>
+ <div class="card row"><div class="emoji">🧠</div><div class="grow"><h3>Математикалық сауаттылық</h3><p>Күнделікті есептер</p></div><div class="duration">15 мин</div></div>
+ <div class="section-title">Эфир кестесі</div>
+ <div class="card"><span class="pill">Кесте үлгісі</span><h3>Сәрсенбі · 19:00</h3><p class="muted">Математика — онлайн сабақ</p><h3>Жұма · 19:00</h3><p class="muted">География — онлайн сабақ</p><p class="muted">Бұл нақты эфир емес. Эфир өткізу үшін YouTube Live немесе Google Meet сілтемесін қосу қажет.</p></div>
+ <button class="primary" onclick="go('quiz')">Бүгінгі тестті бастау</button>
+</section>
+<section id="lessons" class="page">
+ <div class="section-title">Сабақтар</div><p class="muted">Пәндер мен тақырыптар жоспары. Бейне материалдарға сілтемелерді кейін қосуға болады.</p>
+ <div class="card"><h3>🧮 Математика · Бейіндік</h3><p>Алгебра, теңдеулер, пайыз, функциялар, геометрия.</p><button class="secondary" onclick="go('quiz')">Есептерді орындау</button></div>
+ <div class="card"><h3>🌍 География · Бейіндік</h3><p>Масштаб, картография, климат, дүниежүзі, Қазақстан географиясы.</p><button class="secondary" onclick="go('quiz')">География тесті</button></div>
+ <div class="card"><h3>🏛️ Қазақстан тарихы</h3><p>Хронология, тарихи тұлғалар, оқиғалар.</p></div>
+ <div class="card"><h3>📖 Оқу сауаттылығы</h3><p>Мәтін мазмұны, негізгі ой, қорытынды.</p></div>
+ <div class="card"><h3>🧠 Математикалық сауаттылық</h3><p>Пайыз, кестелер, диаграммалар, логикалық есептер.</p></div>
+ <div class="section-title">Тегін ресми ресурстар</div>
+ <div class="card"><p><a href="https://new.testcenter.kz/" target="_blank" rel="noopener">Ұлттық тестілеу орталығы</a></p><p><a href="https://prob-ent.testcenter.kz/" target="_blank" rel="noopener">ҰБТ байқау тесті</a></p></div>
+</section>
+<section id="quiz" class="page">
+ <div class="section-title">Автоматты тест</div><p class="muted">4 сұрақ · әр дұрыс жауапқа 1 ұпай. Жауаптарың осы құрылғыда сақталады.</p>
+ <form id="quizForm">
+  <div class="card">
+   <div class="q"><span class="pill">МАТЕМАТИКА</span><h3>1. 3x + 7 = 25. x нешеге тең?</h3>
+    <label class="option"><input type="radio" name="q0" value="0"> x = 4</label><label class="option"><input type="radio" name="q0" value="1"> x = 6</label><label class="option"><input type="radio" name="q0" value="2"> x = 8</label><div id="f0"></div></div>
+   <div class="q"><span class="pill">МАТЕМАТИКА</span><h3>2. 12 000 теңгеге 10% жеңілдік жасалды. Жаңа баға?</h3>
+    <label class="option"><input type="radio" name="q1" value="0"> 10 800 теңге</label><label class="option"><input type="radio" name="q1" value="1"> 11 000 теңге</label><label class="option"><input type="radio" name="q1" value="2"> 10 000 теңге</label><div id="f1"></div></div>
+   <div class="q"><span class="pill">ГЕОГРАФИЯ</span><h3>3. Масштабы 1:200 000 картада 3 см шындықта қанша?</h3>
+    <label class="option"><input type="radio" name="q2" value="0"> 6 км</label><label class="option"><input type="radio" name="q2" value="1"> 600 м</label><label class="option"><input type="radio" name="q2" value="2"> 60 км</label><div id="f2"></div></div>
+   <div class="q"><span class="pill">ГЕОГРАФИЯ</span><h3>4. Экватордың географиялық ендігі қандай?</h3>
+    <label class="option"><input type="radio" name="q3" value="0"> 90°</label><label class="option"><input type="radio" name="q3" value="1"> 0°</label><label class="option"><input type="radio" name="q3" value="2"> 180°</label><div id="f3"></div></div>
+   <button class="primary" type="submit">Жауаптарды тексеру</button>
+   <button class="secondary" type="button" id="resetQuiz">Қайта тапсыру</button>
+  </div>
+ </form>
+ <div id="result"></div>
+</section>
+<section id="progress" class="page">
+ <div class="section-title">Менің прогресім</div>
+ <div class="card"><p class="muted">Соңғы тест нәтижесі</p><h2 id="scoreText">Әзірге тест тапсырылмады</h2><div class="bar"><span id="progressBar"></span></div><p class="muted" id="progressCaption">Тест тапсырғаннан кейін нәтиже көрсетіледі.</p></div>
+ <div class="card"><h3>Қайталау керек тақырып</h3>
+ <label class="option"><input type="radio" name="topic" value="Алгебра"> Алгебра</label>
+ <label class="option"><input type="radio" name="topic" value="Геометрия"> Геометрия</label>
+ <label class="option"><input type="radio" name="topic" value="Картография"> География: картография</label>
+ <label class="option"><input type="radio" name="topic" value="Климат"> География: климат</label>
+ <textarea id="reflection" placeholder="Апталық қорытынды: не қиын болды?"></textarea>
+ <button class="primary" id="saveReport">Апталық есепті сақтау</button><button class="secondary" id="copyReport">Есепті көшіру</button>
+ <p class="muted" id="reportStatus"></p></div>
+ <div class="card"><h3>Апталық бақылау жоспары</h3><p>Математика — 20 сұрақ</p><p>География — 20 сұрақ</p><p>Қазақстан тарихы — 10 сұрақ</p><p>Оқу және математикалық сауаттылық — 10 сұрақ</p><p class="muted">Бұл — жоспар. Қазір толық 60 сұрақтық бақылау тесті әлі қосылмаған.</p></div>
+</section>
+</main>
+<footer>BILIM · ҰБТ · Алғашқы тегін нұсқа</footer>
+<script>
+const navButtons=[...document.querySelectorAll('nav button')];
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));navButtons.forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'})}
+navButtons.forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+const key='bilim-ubt-progress-v1';
+let saved={};
+try{saved=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+function updateProgress(){
+ const s=saved.lastScore;
+ document.getElementById('topScore').textContent=(s===undefined?'—':s+'/4');
+ document.getElementById('scoreText').textContent=(s===undefined?'Әзірге тест тапсырылмады':s+' / 4 дұрыс жауап');
+ document.getElementById('progressBar').style.width=(s===undefined?0:s/4*100)+'%';
+ document.getElementById('progressCaption').textContent=(s===undefined?'Тест тапсырғаннан кейін нәтиже көрсетіледі.':s===4?'Өте жақсы! Келесі тақырыпқа өт.':'Қате сұрақтарды қайталап, тестті қайта орында.');
+ if(saved.topic){const r=document.querySelector('input[name="topic"][value="'+saved.topic+'"]');if(r)r.checked=true}
+ document.getElementById('reflection').value=saved.reflection||'';
+}
+const correct=[1,0,0,1];
+const explanations=[
+ '3x = 18, сондықтан x = 6.',
+ '12 000 теңгенің 10%-ы — 1 200. Жаңа баға: 10 800 теңге.',
+ '1 см = 2 км, демек 3 см = 6 км.',
+ 'Экватордың географиялық ендігі 0°.'
+];
+document.getElementById('quizForm').addEventListener('submit',e=>{
+ e.preventDefault();let n=0,all=true;
+ correct.forEach((ans,i)=>{const chosen=document.querySelector('input[name="q'+i+'"]:checked');const f=document.getElementById('f'+i);if(!chosen){all=false;f.className='feedback bad';f.textContent='Жауапты таңда.';return}const good=Number(chosen.value)===ans;if(good)n++;f.className='feedback '+(good?'good':'bad');f.textContent=(good?'Дұрыс! ':'Дұрыс жауап. ')+explanations[i]});
+ if(!all){document.getElementById('result').innerHTML='<div class="card">Барлық сұраққа жауап беріп, қайта тексер.</div>';return}
+ saved.lastScore=n;saved.lastDate=new Date().toISOString();localStorage.setItem(key,JSON.stringify(saved));updateProgress();document.getElementById('result').innerHTML='<div class="card"><h2>Нәтиже: '+n+'/4</h2><p>'+(n===4?'Өте жақсы!':'Қателерді қарап, қайта дайындал.')+'</p><button class="primary" onclick="go(\'progress\')">Прогресті көру</button></div>';
+});
+document.getElementById('resetQuiz').addEventListener('click',()=>{document.getElementById('quizForm').reset();document.querySelectorAll('.feedback').forEach(x=>{x.textContent='';x.className=''});document.getElementById('result').innerHTML=''});
+document.getElementById('saveReport').addEventListener('click',()=>{const t=document.querySelector('input[name="topic"]:checked');saved.topic=t?t.value:'';saved.reflection=document.getElementById('reflection').value;localStorage.setItem(key,JSON.stringify(saved));document.getElementById('reportStatus').textContent='Есеп осы телефонның браузерінде сақталды.'});
+document.getElementById('copyReport').addEventListener('click',async()=>{const t=document.querySelector('input[name="topic"]:checked');const text='BILIM ҰБТ апталық есебі\\nТест: '+(saved.lastScore===undefined?'тапсырылмады':saved.lastScore+'/4')+'\\nҚайталау: '+(t?t.value:(saved.topic||'таңдалмады'))+'\\nҚорытынды: '+document.getElementById('reflection').value;try{await navigator.clipboard.writeText(text);document.getElementById('reportStatus').textContent='Есеп көшірілді.'}catch(e){document.getElementById('reportStatus').textContent=text}});
+updateProgress();
+</script>
+</body></html>
